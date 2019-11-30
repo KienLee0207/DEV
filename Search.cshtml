@@ -1,0 +1,68 @@
+﻿@model IEnumerable<ThuVienApp.Sach>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Kết quả tìm kiếm</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div style="margin-bottom: 20px;">
+    @using (Html.BeginForm("Search", "Saches", FormMethod.Post))
+    {
+        <div class="row">
+            <div class="col-md-3">
+                <input class="form-control" name="phone" placeholder="Tên sách" />
+            </div>
+            <div class="col-md-2">
+                <input type="submit" value="Search" class="btn btn-default" />
+            </div>
+        </div>
+    }
+</div>
+<table class="table">
+    <tr>
+    <tr>
+        <th>
+            Tên sách
+        </th>
+        <th>
+            Thể loại
+        </th>
+        <th>
+            Tác giả
+        </th>
+        <th>
+            Số lượng
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Ten_SH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TheLoai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TacGia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoLuong)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.id_SH }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id_SH }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id_SH })
+        </td>
+    </tr>
+    }
+
+</table>

@@ -1,0 +1,52 @@
+﻿@model ThuVienApp.Sach
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Book</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+         Thể loại
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TheLoai)
+        </dd>
+
+        <dt>
+          Tên sách
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ten_SH)
+        </dd>
+
+        <dt>
+            Tác giả
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TacGia)
+        </dd>
+
+        <dt>
+           Số lượng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
+
+      
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_SH }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
